@@ -5,9 +5,13 @@ import (
 	"os"
 )
 
-func writeBalanceToFile(balance float64) {
-	balanceText := fmt.Sprint(balance)
-	os.WriteFile("balance.txt", []byte(balanceText), 0644)
+func logAmountToFile(message string) error {
+	err := os.WriteFile("./balance.txt", []byte(message), 0666)
+	if err != nil {
+
+		return err
+	}
+	return nil
 }
 
 func main() {
@@ -44,7 +48,9 @@ func main() {
 
 			accountBalance += depositAmount // accountBalance = accountBalance + depositAmount
 			fmt.Println("Balance updated! New amount:", accountBalance)
-			writeBalanceToFile(accountBalance)
+
+			str := fmt.Sprintf("Deposited %.2f and current balance is %.2f", depositAmount, accountBalance)
+			logAmountToFile(str)
 		case 3:
 			fmt.Print("Withdrawal amount: ")
 			var withdrawalAmount float64
@@ -62,7 +68,7 @@ func main() {
 
 			accountBalance -= withdrawalAmount // accountBalance = accountBalance + depositAmount
 			fmt.Println("Balance updated! New amount:", accountBalance)
-			writeBalanceToFile(accountBalance)
+
 		default:
 			fmt.Println("Goodbye!")
 			fmt.Println("Thanks for choosing our bank")
