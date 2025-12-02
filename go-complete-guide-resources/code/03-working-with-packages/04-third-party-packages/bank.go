@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	fops "example.com/bank/fileops"
-	"github.com/Pallinder/go-randomdata"
+	rdta "github.com/Pallinder/go-randomdata"
 	"github.com/brianvoe/gofakeit/v7"
 )
 
@@ -21,7 +21,7 @@ func main() {
 	}
 	fmt.Printf("gofakeit.BookAuthor(): %v\n", gofakeit.BookAuthor())
 	fmt.Println("Welcome to Go Bank!")
-	fmt.Println("Reach us 24/7", randomdata.PhoneNumber())
+	fmt.Println("Reach us 24/7", rdta.PhoneNumber())
 
 	for {
 		presentOptions()
