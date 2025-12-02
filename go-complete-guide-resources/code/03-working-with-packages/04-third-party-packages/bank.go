@@ -5,6 +5,7 @@ import (
 
 	"example.com/bank/fileops"
 	"github.com/Pallinder/go-randomdata"
+	"github.com/brianvoe/gofakeit/v7"
 )
 
 const accountBalanceFile = "balance.txt"
@@ -18,7 +19,7 @@ func main() {
 		fmt.Println("---------")
 		// panic("Can't continue, sorry.")
 	}
-
+	fmt.Printf("gofakeit.BookAuthor(): %v\n", gofakeit.BookAuthor())
 	fmt.Println("Welcome to Go Bank!")
 	fmt.Println("Reach us 24/7", randomdata.PhoneNumber())
 
